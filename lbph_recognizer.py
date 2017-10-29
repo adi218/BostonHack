@@ -1,6 +1,5 @@
 import cv2
 import os
-import numpy as np
 from detector import Detector
 from classifier import Classifier
 from predictor import Predictor
@@ -47,8 +46,28 @@ print("Total faces: ", len(faces))
 print("Total labels: ", len(labels))
 
 classify_trainer = Classifier()
-fr = classify_trainer.classify()
+fr = classify_trainer.classify(faces, labels)
 
 prediction = Predictor()
-prediction
+test_img1 = cv2.imread("/home/adi/Hackathons/BostonHack/face-recog/test-data/10.pgm")
+# if test_img1 is None:
+#     print(test_img1)
+# else:
+#     print("Not None!!!!!!!1")
+test_img2 = cv2.imread("/home/adi/Hackathons/BostonHack/face-recog/test-data/6.pgm")
+# if test_img2 is None:
+#     print(test_img2)
+# else:
+#     print("Not None!!!!!!!2")
+
+# perform a prediction
+predicted_img1 = prediction.predict(test_img1, fr)
+predicted_img2 = prediction.predict(test_img2, fr)
+print("Prediction complete")
+
+# display both images
+cv2.imshow('img1 ', predicted_img1)
+cv2.imshow('img2 ', predicted_img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
