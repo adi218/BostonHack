@@ -49,12 +49,13 @@ classify_trainer = Classifier()
 fr = classify_trainer.classify(faces, labels)
 
 prediction = Predictor()
-test_img1 = cv2.imread("/home/adi/Hackathons/BostonHack/face-recog/test-data/10.pgm")
+test_path = os.path.join(os.path.dirname(__file__), 'test-data')
+test_img1 = cv2.imread(os.path.join(test_path, "30.jpg"))
 # if test_img1 is None:
 #     print(test_img1)
 # else:
 #     print("Not None!!!!!!!1")
-test_img2 = cv2.imread("/home/adi/Hackathons/BostonHack/face-recog/test-data/6.pgm")
+# test_img2 = cv2.imread("/home/adi/Hackathons/BostonHack/face-recog/test-data/30.jpg")
 # if test_img2 is None:
 #     print(test_img2)
 # else:
@@ -62,12 +63,12 @@ test_img2 = cv2.imread("/home/adi/Hackathons/BostonHack/face-recog/test-data/6.p
 
 # perform a prediction
 predicted_img1 = prediction.predict(test_img1, fr)
-predicted_img2 = prediction.predict(test_img2, fr)
+# predicted_img2 = prediction.predict(test_img2, fr)
 print("Prediction complete")
 
 # display both images
 cv2.imshow('img1 ', predicted_img1)
-cv2.imshow('img2 ', predicted_img2)
+# cv2.imshow('img2 ', predicted_img2)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
