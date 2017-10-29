@@ -3,7 +3,7 @@ import cv2
 
 
 class person:
-    def __init__(self, name = None, image = None, relation = None, info = None, met = None):
+    def __init__(self, name=None, image=None, relation=None, info=None, met=None):
         self.name = name
         self.image = image
         self.relation = relation
